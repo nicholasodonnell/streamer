@@ -1,4 +1,4 @@
-<img src="logo/logo.png" />
+<img src="assets/logo.gif" />
 
 Collection of dockerized services to livestream to the 🌎
 
