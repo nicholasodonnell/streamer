@@ -1,0 +1,7 @@
+# docker
+.env
+docker-compose.override.yml
+
+# config
+restreamer/*
+!restreamer/.gitkeep

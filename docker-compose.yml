@@ -1,0 +1,33 @@
+services:
+
+  player:
+    build:
+      context: ./player
+      args:
+        - PLAYER_SOURCE_URL=${PLAYER_SOURCE_URL:-http://localhost:8080/player.html}
+    container_name: player
+    image: stream/player:latest
+    networks:
+      - stream
+    ports:
+      - ${PLAYER_PORT:-8085}:80
+
+  restreamer:
+    container_name: restreamer
+    environment:
+      - RS_PASSWORD=${RESTREAMER_PASSWORD:-password}
+      - RS_TOKEN=${RESTREAMER_TOKEN:-secret}
+      - RS_USERNAME=${RESTREAMER_USERNAME:-username}
+    image: datarhei/restreamer:latest
+    networks:
+      - stream
+    ports:
+      - ${RESTREAMER_RTMP_PORT:-1935}:1935
+      - ${RESTREAMER_UI_PORT:-8080}:8080
+    volumes:
+      - ${RESTREAMER_DATA:-./restreamer}:/restreamer/db
+
+networks:
+  stream:
+    driver: bridge
+    name: stream
