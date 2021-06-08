@@ -16,6 +16,7 @@ services:
   restreamer:
     container_name: restreamer
     environment:
+      - RS_INPUTSTREAM=rtmp://127.0.0.1/live/external.stream?token=${RESTREAMER_TOKEN:-secret}
       - RS_PASSWORD=${RESTREAMER_PASSWORD:-password}
       - RS_TOKEN=${RESTREAMER_TOKEN:-secret}
       - RS_USERNAME=${RESTREAMER_USERNAME:-username}
