@@ -1,6 +1,6 @@
 FROM nginx:alpine
 
-ARG PLAYER_SOURCE_URL
+ARG PLAYER_SOURCE_URL=http://localhost:8080/player.html
 
 COPY favicon.ico /usr/share/nginx/html/favicon.ico
 COPY index.html /usr/share/nginx/html/index.html

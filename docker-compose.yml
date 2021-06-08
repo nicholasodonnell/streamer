@@ -4,7 +4,7 @@ services:
     build:
       context: ./player
       args:
-        - PLAYER_SOURCE_URL=${PLAYER_SOURCE_URL:-http://localhost:8080/player.html}
+        - PLAYER_SOURCE_URL=${PLAYER_SOURCE_URL}
     container_name: player
     image: stream/player:latest
     networks:
