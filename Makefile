@@ -54,6 +54,7 @@ pull: ## pull docker images
 up: ## start collection
 	@docker-compose ${DOCKER_COMPOSE_ARGS} \
 		up \
+			--detach \
 			--remove-orphans
 
 .PHONY: \
