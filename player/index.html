@@ -26,18 +26,14 @@
 </head>
 <body>
   <iframe
+    allowfullscreen="true"
+    frameborder="0"
     id="player"
+    mozallowfullscreen="true"
     name="player"
     scrolling="no"
-    frameborder="0"
-    webkitallowfullscreen="true"
-    mozallowfullscreen="true"
-    allowfullscreen="true">
+    src="/restreamer/player.html"
+    webkitallowfullscreen="true">
   </iframe>
-
-  <script src="/vars.js"></script>
-  <script>
-    document.querySelector('#player').src = window.PLAYER_SOURCE_URL
-  </script>
 </body>
 </html>

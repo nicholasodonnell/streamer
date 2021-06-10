@@ -11,7 +11,7 @@ Collection of dockerized services to livestream to the 🌎
 ### Services
 
 - **Restreamer** - Video streaming in real time.
-- **NGINX** - Webplayer hosting.
+- **NGINX** - Player hosting & gateway.
 
 ## Installation
 
@@ -22,8 +22,8 @@ Collection of dockerized services to livestream to the 🌎
 
 Highly recommend [OBS](https://obsproject.com/) for live streaming. Please refer to [this guide](https://datarhei.github.io/restreamer/docs/guides-obs.html) for setup details.
 
-1. Configure Restreamer by visiting `http://<YOUR_IP>:<RESTREAMER_UI_PORT>`.
-2. Access the player by visiting `http://<YOUR_IP>:<PLAYER_PORT>`.
+1. Configure Restreamer by visiting `http://<YOUR_IP>:<WEB_PORT>/restreamer`.
+2. Access player by visiting `http://<YOUR_IP>:<WEB_PORT>`.
 
 ## Usage
 
@@ -65,13 +65,11 @@ make clean
 
 ## ENV Options
 
-| Option                 | Description                                                 | Default                             |
-| ---------------------- | ----------------------------------------------------------- | ----------------------------------- |
-| `PLAYER_PORT`          | Host port for the webplayer.                                | `8005`                              |
-| `PLAYER_SOURCE_URL`    | Publicly accessible URL for the embedded Restreamer player. | `http://localhost:8080/player.html` |
-| `RESTREAMER_DATA`      | Host location for Restreamer configuration files.           | `./restreamer`                      |
-| `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.                        | `password`                          |
-| `RESTREAMER_RTMP_PORT` | Host RTMP port.                                             | `1935`                              |
-| `RESTREAMER_TOKEN`     | RTMP publish token.                                         | `secret`                            |
-| `RESTREAMER_UI_PORT`   | Host port for the Restreamer web interface.                 | `8080`                              |
-| `RESTREAMER_USERNAME`  | Username for the Restreamer backend.                        | `username`                          |
+| Option                 | Description                                   | Default        |
+| ---------------------- | --------------------------------------------- | -------------- |
+| `WEB_PORT`             | Host web port.                                | `8005`         |
+| `RTMP_PORT`            | Host RTMP port.                               | `1935`         |
+| `RESTREAMER_DATA_PATH` | Host path for Restreamer configuration files. | `./restreamer` |
+| `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.          | `password`     |
+| `RESTREAMER_TOKEN`     | RTMP publish token.                           | `secret`       |
+| `RESTREAMER_USERNAME`  | Username for the Restreamer backend.          | `username`     |
