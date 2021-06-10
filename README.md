@@ -67,7 +67,7 @@ make clean
 
 | Option                 | Description                                   | Default        |
 | ---------------------- | --------------------------------------------- | -------------- |
-| `WEB_PORT`             | Host web port.                                | `8005`         |
+| `WEB_PORT`             | Host web port.                                | `8080`         |
 | `RTMP_PORT`            | Host RTMP port.                               | `1935`         |
 | `RESTREAMER_DATA_PATH` | Host path for Restreamer configuration files. | `./restreamer` |
 | `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.          | `password`     |
