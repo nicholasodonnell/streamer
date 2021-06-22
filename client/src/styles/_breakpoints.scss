@@ -1,0 +1,13 @@
+@use 'layout';
+
+$breakpoints: (
+  'small': layout.$breakpoint-small,
+  'medium': layout.$breakpoint-medium,
+  'large': layout.$breakpoint-large,
+);
+
+@mixin respond($breakpoint) {
+  @media (min-width: map-get($breakpoints, $breakpoint)) {
+    @content;
+  }
+}

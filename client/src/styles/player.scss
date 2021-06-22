@@ -1,0 +1,74 @@
+@use 'colors';
+@use 'fonts';
+@use 'layout';
+@use 'sass:math';
+
+.player {
+  background-color: colors.$black;
+  border-radius: layout.$gutter;
+  box-shadow: 0 0.6rem 2.5rem -0.2rem colors.$black;
+  display: flex;
+  max-width: layout.$breakpoint-medium;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  &:before,
+  &:after {
+    content: '';
+    display: none;
+    z-index: 2;
+  }
+
+  &:before {
+    background-color: colors.$black;
+    border-radius: layout.$gutter;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &:after {
+    padding-bottom: math.div(9, 16) * 100%;
+  }
+
+  &--loading,
+  &--offline {
+    &:before,
+    &:after {
+      display: block;
+    }
+  }
+
+  &__loader {
+    align-self: center;
+    display: flex;
+    left: 50%;
+    position: relative;
+    transform: translateX(-50%);
+    z-index: 3;
+  }
+
+  &__offline {
+    color: colors.$red;
+    font-family: fonts.$sans-serif;
+    font-size: fonts.$large;
+    font-weight: fonts.$bold;
+    left: 50%;
+    position: absolute;
+    text-transform: uppercase;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    z-index: 3;
+  }
+
+  &__video {
+    bottom: 0;
+    left: 0;
+    // padding-bottom: calc(9 / 16 * 100%);
+    right: 0;
+    top: 0;
+  }
+}

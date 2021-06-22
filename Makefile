@@ -2,7 +2,7 @@ include .env
 
 SHELL := /bin/bash
 PROJECT_DIRECTORY := $(shell pwd)
-PROJECT_NAME := restreamer
+PROJECT_NAME := streamer
 
 define DOCKER_COMPOSE_ARGS
 	--log-level ERROR \
@@ -13,7 +13,7 @@ endef
 help: ## usage
 	@cat Makefile | grep -E '^[a-zA-Z_-]+:.*?## .*$$' | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-build: pull ## build docker images
+build: ## build docker images
 	@docker-compose ${DOCKER_COMPOSE_ARGS} \
 		build \
 			--force-rm \
@@ -25,6 +25,14 @@ clean: ## remove docker images
 			--remove-orphans \
 			--rmi all \
 			--volumes
+
+dev: ## start collection in client development mode
+	@docker-compose ${DOCKER_COMPOSE_ARGS} \
+		up \
+			--remove-orphans \
+			client-dev \
+			gateway \
+			restreamer
 
 down: ## stop collection
 	@docker-compose ${DOCKER_COMPOSE_ARGS} \
@@ -46,22 +54,20 @@ else
 			$(service) > $(file)
 endif
 
-pull: ## pull docker images
-	@docker-compose ${DOCKER_COMPOSE_ARGS} \
-		pull \
-			--ignore-pull-failures
-
 up: ## start collection
 	@docker-compose ${DOCKER_COMPOSE_ARGS} \
 		up \
 			--detach \
-			--remove-orphans
+			--remove-orphans \
+			client \
+			gateway \
+			restreamer
 
 .PHONY: \
 	help \
 	build \
 	clean \
+	dev \
 	down \
 	logs \
-	pull \
 	up

@@ -1,28 +1,50 @@
 version: "3.5"
 services:
 
+  client:
+    build:
+      context: ./client
+    container_name: client
+    expose:
+      - 80
+    image: streamer/client:latest
+    networks:
+      - streamer
+
+  client-dev:
+    build:
+      context: ./client
+      target: base
+    command: yarn dev
+    container_name: client-dev
+    image: streamer/client-dev:latest
+    networks:
+      - streamer
+    ports:
+      - ${DEV_PORT:-3000}:3000
+    volumes:
+      - ./client/.babelrc:/app/.babelrc
+      - ./client/.eslintrc:/app/.eslintrc
+      - ./client/package.json:/app/package.json
+      - ./client/public/favicon.ico:/app/public/favicon.ico
+      - ./client/src:/app/src
+      - ./client/webpack.config.js:/app/webpack.config.js
+      - ./client/yarn.lock:/app/yarn.lock
+
   gateway:
     build:
       context: ./gateway
     container_name: gateway
-    image: stream/gateway:latest
+    image: streamer/gateway:latest
     networks:
-      - stream
+      - streamer
     ports:
       - ${WEB_PORT:-8080}:80
       - ${RTMP_PORT:-1935}:1935
 
-  player:
-    build:
-      context: ./player
-    container_name: player
-    expose:
-      - 80
-    image: stream/player:latest
-    networks:
-      - stream
-
   restreamer:
+    build:
+      context: ./restreamer
     container_name: restreamer
     environment:
       - RS_INPUTSTREAM=rtmp://127.0.0.1/live/external.stream?token=${RESTREAMER_TOKEN:-secret}
@@ -32,13 +54,13 @@ services:
     expose:
       - 1935
       - 8080
-    image: datarhei/restreamer:latest
+    image: streamer/restreamer:latest
     networks:
-      - stream
+      - streamer
     volumes:
-      - ${RESTREAMER_DATA_PATH:-./restreamer}:/restreamer/db
+      - ${RESTREAMER_DATA_PATH:-./restreamer/data}:/restreamer/db
 
 networks:
-  stream:
+  streamer:
     driver: bridge
-    name: stream
+    name: streamer

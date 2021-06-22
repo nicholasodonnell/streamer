@@ -1,0 +1,37 @@
+@use 'colors';
+
+.loader {
+  height: 4rem;
+  position: relative;
+  width: 4rem;
+
+  &__bounce1,
+  &__bounce2 {
+    animation: bounce 2.0s infinite ease-in-out;
+    background-color: colors.$white;
+    border-radius: 50%;
+    height: 100%;
+    left: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+
+  &__bounce2 {
+    animation-delay: -1.0s;
+  }
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    transform: scale(0.0);
+    transform: scale(0.0);
+  }
+
+  50% {
+    transform: scale(1.0);
+    transform: scale(1.0);
+  }
+}

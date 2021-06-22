@@ -1,4 +1,4 @@
-<img src="assets/logo.gif" />
+<img src="assets/banner.png" />
 
 Collection of dockerized services to livestream to the 🌎
 
@@ -10,8 +10,9 @@ Collection of dockerized services to livestream to the 🌎
 
 ### Services
 
-- **Restreamer** - Video streaming in real time.
-- **NGINX** - Player hosting & gateway.
+- **Client** - Webplayer frontend
+- **Gateway** - Routing
+- **Restreamer** - Streaming backend
 
 ## Installation
 
@@ -24,6 +25,13 @@ Highly recommend [OBS](https://obsproject.com/) for live streaming. Please refer
 
 1. Configure Restreamer by visiting `http://<YOUR_IP>:<WEB_PORT>/restreamer`.
 2. Access player by visiting `http://<YOUR_IP>:<WEB_PORT>`.
+
+## Development
+
+Development mode will use [Webpack dev server](https://webpack.js.org/configuration/dev-server/) with live reloading to serve the web client.
+
+1. Run `make dev` to run this collection in development mode.
+2. Access player by visiting `http://<YOUR_IP>:<DEV_PORT>`.
 
 ## Usage
 
@@ -39,6 +47,12 @@ To stop the collection:
 make down
 ```
 
+To start the collection in development mode:
+
+```
+make dev
+```
+
 To view logs of one or more running services:
 
 ```
@@ -49,12 +63,6 @@ To build docker images:
 
 ```
 make build
-```
-
-To pull docker images:
-
-```
-make pull
 ```
 
 To remove docker images:
@@ -69,6 +77,7 @@ make clean
 | ---------------------- | --------------------------------------------- | -------------- |
 | `WEB_PORT`             | Host web port.                                | `8080`         |
 | `RTMP_PORT`            | Host RTMP port.                               | `1935`         |
+| `DEV_PORT`             | Host Webpack dev server port.                 | `3000`         |
 | `RESTREAMER_DATA_PATH` | Host path for Restreamer configuration files. | `./restreamer` |
 | `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.          | `password`     |
 | `RESTREAMER_TOKEN`     | RTMP publish token.                           | `secret`       |

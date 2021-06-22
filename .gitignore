@@ -2,6 +2,12 @@
 .env
 docker-compose.override.yml
 
-# config
-restreamer/*
-!restreamer/.gitkeep
+# player
+client/node_modules
+client/public/*
+!client/public/favicon.ico
+
+# restreamer
+restreamer/data/*
+!restreamer/data/.gitkeep
+

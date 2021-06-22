@@ -1,0 +1,3 @@
+export const SET_LOADING = 'SET_LOADING'
+export const SET_NOTIFICATIONS = 'SET_NOTIFICATIONS'
+export const SET_ONLINE = 'SET_ONLINE'

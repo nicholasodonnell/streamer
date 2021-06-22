@@ -1,0 +1,48 @@
+{
+  "extends": [
+    "airbnb"
+  ],
+  "env": {
+    "browser": true,
+    "commonjs": true
+  },
+  "globals": {
+    "SERVICE_URL": true
+  },
+  "parser": "@babel/eslint-parser",
+  "plugins": [
+    "import",
+    "react-hooks",
+    "react",
+    "simple-import-sort"
+  ],
+  "rules": {
+    "array-bracket-spacing": [ "error", "always" ],
+    "arrow-parens": [ "error", "as-needed" ],
+    "comma-dangle": [ "error", {
+      "arrays": "always-multiline",
+      "objects": "always-multiline",
+      "imports": "always-multiline",
+      "exports": "always-multiline",
+      "functions": "ignore"
+    } ],
+    "function-paren-newline": "off",
+    "import/newline-after-import": [ "error", { "count": 1 } ],
+    "import/no-cycle": 1,
+    "import/no-self-import": 1,
+    "implicit-arrow-linebreak": "off",
+    "indent": [ "error", 2, { "SwitchCase": 1 } ],
+    "max-len": "off",
+    "no-console": "off",
+    "no-unused-expressions": 2,
+    "object-curly-newline": "off",
+    "object-curly-spacing": [ "error", "always" ],
+    "quotes": [ "error", "single", { "allowTemplateLiterals": true } ],
+    "react/jsx-filename-extension": [ 1, { "extensions": [".js", ".jsx"] } ],
+    "react/jsx-props-no-spreading": "off",
+    "react/prop-types": 0,
+    "semi": [ "error", "never" ],
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error"
+  }
+}

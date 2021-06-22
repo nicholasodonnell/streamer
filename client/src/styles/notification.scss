@@ -1,0 +1,44 @@
+@use 'colors';
+@use 'fonts';
+@use 'layout';
+@use 'sass:math';
+
+.notification {
+  align-items: center;
+  animation: animateInOut 5s ease 0s 1 forwards;
+  background-color: colors.$red;
+  border-radius: layout.$gutter;
+  display: flex;
+  flex-direction: row;
+  max-width: 100%;
+  padding: math.div(layout.$gutter, 2) layout.$gutter;
+
+  &__icon,
+  &__message {
+    color: colors.$white;
+  }
+
+  &__icon {
+    margin-right: math.div(layout.$gutter, 2);
+  }
+
+  &__message {
+    font-family: fonts.$sans-serif;
+    font-size: fonts.$small;
+    font-weight: fonts.$regular;
+  }
+}
+
+@keyframes animateInOut {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+
+  10%,
+  90% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

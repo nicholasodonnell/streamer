@@ -1,0 +1,22 @@
+@use 'layout';
+
+.home {
+  &__header {
+    justify-content: center;
+
+    &__logo {
+      height: auto;
+      width: 20rem;
+    }
+  }
+
+  &__main {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+
+    &__player {
+      margin-top: layout.$header-height * -1;
+    }
+  }
+}
