@@ -8,7 +8,7 @@
   border-radius: layout.$gutter;
   box-shadow: 0 0.6rem 2.5rem -0.2rem colors.$black;
   display: flex;
-  max-width: layout.$breakpoint-medium;
+  max-width: layout.$breakpoint-large;
   overflow: hidden;
   position: relative;
   width: 100%;
@@ -67,7 +67,6 @@
   &__video {
     bottom: 0;
     left: 0;
-    // padding-bottom: calc(9 / 16 * 100%);
     right: 0;
     top: 0;
   }
