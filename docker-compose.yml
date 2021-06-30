@@ -5,6 +5,8 @@ services:
     build:
       context: ./client
     container_name: client
+    env_file:
+      - .env
     expose:
       - 80
     image: streamer/client:latest
@@ -17,6 +19,8 @@ services:
       target: base
     command: yarn dev
     container_name: client-dev
+    env_file:
+      - .env
     image: streamer/client-dev:latest
     networks:
       - streamer
@@ -35,6 +39,8 @@ services:
     build:
       context: ./gateway
     container_name: gateway
+    env_file:
+      - .env
     image: streamer/gateway:latest
     networks:
       - streamer
@@ -46,6 +52,8 @@ services:
     build:
       context: ./restreamer
     container_name: restreamer
+    env_file:
+      - .env
     environment:
       - RS_INPUTSTREAM=rtmp://127.0.0.1/live/external.stream?token=${RESTREAMER_TOKEN:-secret}
       - RS_PASSWORD=${RESTREAMER_PASSWORD:-password}
