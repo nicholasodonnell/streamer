@@ -1,0 +1,11 @@
+version: "3.5"
+services:
+
+  client-dev:
+    ports:
+      - ${DEV_PORT:-3000}:3000
+
+  gateway:
+    ports:
+      - ${WEB_PORT:-8080}:80
+      - ${RTMP_PORT:-1935}:1935

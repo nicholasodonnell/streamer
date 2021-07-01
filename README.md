@@ -17,7 +17,8 @@ Collection of dockerized services to livestream to the 🌎
 ## Installation
 
 1. Create a `.env` file using [`.env.example`](.env.example) as a reference: `cp -n .env{.example,}`.
-2. Build the docker images by running `make build`.
+2. Create a `docker-compose.override.yml` file using [`docker-compose.override.example.yml`](docker-compose.override.example.yml) as a reference: `cp -n docker-compose.override{.example,}.yml`.
+3. Build the docker images by running `make build`.
 
 ## Setup
 
