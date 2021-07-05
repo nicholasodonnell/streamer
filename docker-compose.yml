@@ -26,14 +26,6 @@ services:
     image: streamer/client-dev:latest
     networks:
       - streamer
-    volumes:
-      - ./client/.babelrc:/app/.babelrc
-      - ./client/.eslintrc:/app/.eslintrc
-      - ./client/package.json:/app/package.json
-      - ./client/public/favicon.ico:/app/public/favicon.ico
-      - ./client/src:/app/src
-      - ./client/webpack.config.js:/app/webpack.config.js
-      - ./client/yarn.lock:/app/yarn.lock
 
   gateway:
     build:
@@ -54,19 +46,12 @@ services:
     container_name: restreamer
     env_file:
       - .env
-    environment:
-      - RS_INPUTSTREAM=rtmp://127.0.0.1/live/external.stream?token=${RESTREAMER_TOKEN:-secret}
-      - RS_PASSWORD=${RESTREAMER_PASSWORD:-password}
-      - RS_TOKEN=${RESTREAMER_TOKEN:-secret}
-      - RS_USERNAME=${RESTREAMER_USERNAME:-username}
     expose:
       - 1935
       - 8080
     image: streamer/restreamer:latest
     networks:
       - streamer
-    volumes:
-      - ${RESTREAMER_DATA_PATH:-./restreamer/data}:/restreamer/db
 
 networks:
   streamer:
