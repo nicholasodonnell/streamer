@@ -1,7 +1,7 @@
 version: "3.5"
 services:
 
-  client-dev:
+  streamer-client-dev:
     ports:
       - ${DEV_PORT:-3000}:3000
     volumes:
@@ -13,7 +13,7 @@ services:
       - ./client/webpack.config.js:/app/webpack.config.js
       - ./client/yarn.lock:/app/yarn.lock
 
-  gateway:
+  streamer-gateway:
     ports:
       - ${WEB_PORT:-8080}:80
       - ${RTMP_PORT:-1935}:1935
