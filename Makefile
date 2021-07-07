@@ -30,8 +30,8 @@ dev: ## start collection in client development mode
 	@docker-compose ${DOCKER_COMPOSE_ARGS} \
 		up \
 			--remove-orphans \
-			client-dev \
-			gateway \
+			streamer-client-dev \
+			streamer-gateway \
 			restreamer
 
 down: ## stop collection
@@ -59,8 +59,8 @@ up: ## start collection
 		up \
 			--detach \
 			--remove-orphans \
-			client \
-			gateway \
+			streamer-client \
+			streamer-gateway \
 			restreamer
 
 .PHONY: \
