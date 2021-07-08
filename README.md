@@ -2,10 +2,6 @@
 
 Collection of dockerized services to livestream to the 🌎
 
-<p align="center">
-  <img src="assets/screenshot.png">
-</p>
-
 ### Requirements
 
 - [Docker](https://www.docker.com/get-started)
@@ -87,3 +83,9 @@ make clean
 | `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.          | `password`     |
 | `RESTREAMER_TOKEN`     | RTMP publish token.                           | `secret`       |
 | `RESTREAMER_USERNAME`  | Username for the Restreamer backend.          | `username`     |
+
+## Screenshoot
+
+<p align="center">
+  <img src="assets/screenshot.png">
+</p>
