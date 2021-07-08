@@ -3,7 +3,7 @@
 Collection of dockerized services to livestream to the 🌎
 
 <p align="center">
-  <img width="600" height="200" src="assets/screenshot.png">
+  <img src="assets/screenshot.png">
 </p>
 
 ### Requirements
