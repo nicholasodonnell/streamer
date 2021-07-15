@@ -10,7 +10,7 @@ import videojs from 'video.js'
 import getServiceUrl from '../utils/getServiceUrl'
 
 const videoJsOptions = {
-  autoplay: true,
+  autoplay: 'play',
   controls: true,
   fluid: false,
   liveui: false,
