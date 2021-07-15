@@ -1,7 +1,9 @@
+@use 'colors';
 @use 'layout';
 
 .home {
   &__header {
+    background-color: colors.$black;
     justify-content: center;
 
     &__logo {
@@ -11,12 +13,6 @@
   }
 
   &__main {
-    align-items: center;
     display: flex;
-    justify-content: center;
-
-    &__player {
-      margin-top: layout.$header-height * -1;
-    }
   }
 }

@@ -9,6 +9,7 @@
   padding: 0 layout.$gutter;
   position: absolute;
   width: 100%;
+  z-index: 2;
 
   &__notification {
     &:not(:last-child) {

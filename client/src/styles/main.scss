@@ -1,6 +1,7 @@
 @use 'layout';
 
 .main {
-  height: 100%;
-  padding: 0 layout.$gutter;
+  box-sizing: border-box;
+  width: 100%;
+  flex: 1;
 }

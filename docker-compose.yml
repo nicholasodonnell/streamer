@@ -16,7 +16,7 @@ services:
   streamer-client-dev:
     build:
       context: ./client
-      target: base
+      target: build
     command: yarn dev
     container_name: streamer-client-dev
     env_file:

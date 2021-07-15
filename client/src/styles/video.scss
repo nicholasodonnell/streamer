@@ -1,17 +1,19 @@
+@use 'colors';
+
 .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
   animation: pulse 2s ease-in-out 0s infinite forwards;
   content: '';
   background-image: url('../assets/icon.svg');
   background-repeat: no-repeat;
-  background-size: 46px;
-  background-position: 55% calc(50% - 0px);
+  background-size: 4.6rem;
+  background-position: 55% 50%;
   border: none !important;
   box-shadow: none !important;
 }
 
 .video-js .vjs-big-play-button {
   border: 0 !important;
-  background-color: transparent !important;
+  background-color: colors.$transparent !important;
 }
 
 @keyframes pulse {

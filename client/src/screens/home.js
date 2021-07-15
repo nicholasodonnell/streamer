@@ -14,7 +14,7 @@ export default () => (
       </a>
     </Header>
     <Main className={classNames.home__main}>
-      <Player className={classNames.home__main__player} />
+      <Player />
     </Main>
   </>
 )
