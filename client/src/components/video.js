@@ -14,6 +14,7 @@ const videoJsOptions = {
   controls: true,
   fluid: false,
   liveui: false,
+  nativeControlsForTouch: true,
   poster: '',
   sources: [
     {
