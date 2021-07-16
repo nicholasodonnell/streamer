@@ -1,19 +1,57 @@
 @use 'colors';
+@use 'fonts';
+@use 'layout';
 
 .video-js .vjs-big-play-button .vjs-icon-placeholder:before {
   animation: pulse 2s ease-in-out 0s infinite forwards;
-  content: '';
   background-image: url('../assets/icon.svg');
+  background-position: 55% 50%;
   background-repeat: no-repeat;
   background-size: 4.6rem;
-  background-position: 55% 50%;
   border: none !important;
   box-shadow: none !important;
+  content: '';
+  margin-top: layout.$header-height * -1;
 }
 
 .video-js .vjs-big-play-button {
   border: 0 !important;
   background-color: colors.$transparent !important;
+}
+
+.vjs-live-display {
+  color: colors.$red;
+  font-weight: fonts.$black;
+  position: relative;
+  padding-left: 1.3rem;
+
+  &:before {
+    animation: flash 2s ease-in-out 0s infinite forwards;
+    background-color: colors.$red;
+    border-radius: 50%;
+    content: '';
+    height: 0.8rem;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    margin-top: -0.4rem;
+    width: 0.8rem;
+  }
+}
+
+.vjs-control-bar {
+  background-color: rgba(colors.$transparent, 0.75) !important;
+}
+
+@keyframes flash {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
 }
 
 @keyframes pulse {

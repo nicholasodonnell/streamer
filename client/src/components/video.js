@@ -10,10 +10,11 @@ import videojs from 'video.js'
 import getServiceUrl from '../utils/getServiceUrl'
 
 const videoJsOptions = {
-  autoplay: 'play',
+  autoplay: 'any',
   controls: true,
   fluid: false,
   liveui: false,
+  poster: '',
   sources: [
     {
       src: `${getServiceUrl()}/restreamer/hls/live.stream.m3u8`,

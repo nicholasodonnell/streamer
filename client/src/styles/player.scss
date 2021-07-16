@@ -50,6 +50,7 @@
     font-size: fonts.$large;
     font-weight: fonts.$bold;
     left: 50%;
+    margin-top: layout.$header-height * -1;
     position: absolute;
     text-transform: uppercase;
     top: 50%;
