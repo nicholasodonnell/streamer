@@ -42,7 +42,6 @@
     "ramda": "^0.27.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-feather": "^2.0.9",
     "react-hook-thunk-reducer": "^0.2.4",
     "uuid": "^8.3.2",
     "video.js": "^7.12.3"

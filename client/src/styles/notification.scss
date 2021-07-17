@@ -5,7 +5,7 @@
 
 .notification {
   align-items: center;
-  animation: animateInOut 5s ease 0s 1 forwards;
+  animation: animateInOut 10s ease 0s 1 forwards;
   background-color: colors.$red;
   border-radius: layout.$gutter;
   display: flex;
@@ -13,19 +13,12 @@
   max-width: 100%;
   padding: math.div(layout.$gutter, 2) layout.$gutter;
 
-  &__icon,
   &__message {
     color: colors.$white;
-  }
-
-  &__icon {
-    margin-right: math.div(layout.$gutter, 2);
-  }
-
-  &__message {
     font-family: fonts.$sans-serif;
     font-size: fonts.$small;
     font-weight: fonts.$regular;
+    line-height: 1.5;
   }
 }
 
@@ -36,8 +29,8 @@
     transform: translateY(100%);
   }
 
-  10%,
-  90% {
+  5%,
+  95% {
     opacity: 1;
     transform: translateY(0);
   }

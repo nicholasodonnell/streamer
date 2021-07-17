@@ -14,7 +14,6 @@ const videoJsOptions = {
   controls: true,
   fluid: false,
   liveui: false,
-  nativeControlsForTouch: true,
   poster: '',
   sources: [
     {
@@ -26,11 +25,13 @@ const videoJsOptions = {
 
 export default ({
   className,
+  onError,
 }) => {
   const videoRef = useRef(null)
 
   useEffect(() => {
-    videojs(videoRef.current, videoJsOptions)
+    const player = videojs(videoRef.current, videoJsOptions)
+    player.on('error', () => onError(player.error().message))
   }, [ videoRef ])
 
   return (
