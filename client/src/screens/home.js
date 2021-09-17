@@ -10,7 +10,7 @@ export default () => (
   <>
     <Header className={classNames.home__header}>
       <a className={classNames.home__header__logo} href="/">
-        <img src={logo} alt="logo" />
+        <img className={classNames.home__header__logo__image} src={logo} alt="logo" />
       </a>
     </Header>
     <Main className={classNames.home__main}>
