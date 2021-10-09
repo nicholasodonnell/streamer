@@ -3,7 +3,7 @@ services:
 
   streamer-client-dev:
     ports:
-      - ${DEV_PORT:-3000}:3000
+      - ${DEV_PORT}:3000
     volumes:
       - ./client/.babelrc:/app/.babelrc
       - ./client/.eslintrc:/app/.eslintrc
@@ -15,14 +15,13 @@ services:
 
   streamer-gateway:
     ports:
-      - ${WEB_PORT:-8080}:80
-      - ${RTMP_PORT:-1935}:1935
+      - ${WEB_PORT}:80
+      - ${RTMP_PORT}:1935
 
   restreamer:
     environment:
-      - RS_INPUTSTREAM=rtmp://127.0.0.1/live/external.stream?token=${RESTREAMER_TOKEN:-secret}
-      - RS_PASSWORD=${RESTREAMER_PASSWORD:-password}
-      - RS_TOKEN=${RESTREAMER_TOKEN:-secret}
-      - RS_USERNAME=${RESTREAMER_USERNAME:-username}
+      - RS_PASSWORD=${RESTREAMER_PASSWORD}
+      - RS_TOKEN=${RESTREAMER_TOKEN}
+      - RS_USERNAME=${RESTREAMER_USERNAME}
     volumes:
-      - ${RESTREAMER_DATA_PATH:-./restreamer/data}:/restreamer/db
+      - ${RESTREAMER_DATA_PATH}:/restreamer/db
