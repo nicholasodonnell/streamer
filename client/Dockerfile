@@ -19,4 +19,5 @@ RUN yarn build
 
 FROM nginx:alpine
 
+COPY nginx.conf /etc/nginx/nginx.conf
 COPY --from=build /app/public /usr/share/nginx/html
