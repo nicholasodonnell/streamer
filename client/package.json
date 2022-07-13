@@ -1,9 +1,9 @@
 {
-  "name": "streamer-client",
+  "name": "odo-stream-client",
   "version": "1.0.0",
-  "description": "Streamer client",
+  "description": "odo-stream client",
   "main": "index.js",
-  "repository": "https://github.com/nicholasodonnell/streamer",
+  "repository": "https://github.com/nicholasodonnell/odo-stream",
   "author": "Nicholas O'Donnell <nicholas@nicholasodonnell.com>",
   "license": "MIT",
   "scripts": {
