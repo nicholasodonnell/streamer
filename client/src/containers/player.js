@@ -24,7 +24,7 @@ export default ({
     )}
     >
       {loading && <Loader className={classNames.player__loader} />}
-      {!loading && !online && <h3 className={classNames.player__offline}>Offline</h3>}
+      {!loading && !online && <h3 className={classNames.player__offline}>Stream Offline</h3>}
       {!loading && online
         && (
           <Video

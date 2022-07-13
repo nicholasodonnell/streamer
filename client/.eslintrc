@@ -1,16 +1,20 @@
 {
   "extends": [
-    "airbnb"
+    "plugin:css-modules/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended"
   ],
   "env": {
     "browser": true,
-    "commonjs": true
+    "es6": true,
+    "node": true
   },
-  "globals": {
-    "SERVICE_URL": true
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "module"
   },
-  "parser": "@babel/eslint-parser",
   "plugins": [
+    "css-modules",
     "import",
     "react-hooks",
     "react",
@@ -26,23 +30,37 @@
       "exports": "always-multiline",
       "functions": "ignore"
     } ],
+    "css-modules/no-unused-class": "off",
     "function-paren-newline": "off",
-    "import/newline-after-import": [ "error", { "count": 1 } ],
+    "implicit-arrow-linebreak": "off",
     "import/no-cycle": 1,
     "import/no-self-import": 1,
-    "implicit-arrow-linebreak": "off",
     "indent": [ "error", 2, { "SwitchCase": 1 } ],
+    "jsx-quotes": [ "error", "prefer-double"],
     "max-len": "off",
     "no-console": "off",
+    "no-undef": 2,
     "no-unused-expressions": 2,
     "object-curly-newline": "off",
     "object-curly-spacing": [ "error", "always" ],
     "quotes": [ "error", "single", { "allowTemplateLiterals": true } ],
-    "react/jsx-filename-extension": [ 1, { "extensions": [".js", ".jsx"] } ],
-    "react/jsx-props-no-spreading": "off",
-    "react/prop-types": 0,
+    "react-hooks/exhaustive-deps": "error",
+    "react-hooks/rules-of-hooks": 0,
+    "react/display-name": "off",
+    "react/jsx-curly-spacing": [ "error", { "children": true }],
+    "react/jsx-no-undef": "error",
+    "react/jsx-uses-react": "error",
+    "react/jsx-uses-vars": "error",
+    "react/no-unescaped-entities": [ "error", { "forbid": [ ">", "\"", "}" ] } ],
+    "react/prop-types": "off",
+    "react/self-closing-comp": [ "error", { "component": true, "html": true } ],
     "semi": [ "error", "never" ],
-    "simple-import-sort/imports": "error",
-    "simple-import-sort/exports": "error"
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error"
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }

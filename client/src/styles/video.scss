@@ -39,8 +39,12 @@
   }
 }
 
-.vjs-control-bar {
-  background-color: rgba(colors.$transparent, 0.75) !important;
+.vjs-control-bar,
+.vjs-has-started.vjs-user-inactive.vjs-playing .vjs-control-bar {
+  background-color: rgba(colors.$black, 0.25) !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+  height: 3rem !important;
 }
 
 @keyframes flash {

@@ -1,1 +1,1 @@
-FROM datarhei/restreamer:latest
+FROM datarhei/restreamer:0.6.8

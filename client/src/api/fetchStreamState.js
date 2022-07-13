@@ -6,7 +6,7 @@ import getServiceUrl from '../utils/getServiceUrl'
 export default () =>
   axios({
     method: 'GET',
-    url: `${getServiceUrl()}/restreamer/v1/states`,
+    url: `${getServiceUrl()}/admin/v1/states`,
   })
     .then(prop('data'))
     .catch(e => {

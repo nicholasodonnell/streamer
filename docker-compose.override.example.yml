@@ -1,19 +1,17 @@
 version: "3.5"
 services:
 
-  streamer-client-dev:
-    ports:
-      - ${DEV_PORT}:3000
+  client-development:
     volumes:
-      - ./client/.babelrc:/app/.babelrc
-      - ./client/.eslintrc:/app/.eslintrc
-      - ./client/package.json:/app/package.json
-      - ./client/public/favicon.ico:/app/public/favicon.ico
-      - ./client/src:/app/src
-      - ./client/webpack.config.js:/app/webpack.config.js
-      - ./client/yarn.lock:/app/yarn.lock
+      - ./client:/app
+      - /app/node_modules
 
-  streamer-gateway:
+  gateway:
+    ports:
+      - ${WEB_PORT}:80
+      - ${RTMP_PORT}:1935
+
+  gateway-development:
     ports:
       - ${WEB_PORT}:80
       - ${RTMP_PORT}:1935

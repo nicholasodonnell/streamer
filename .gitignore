@@ -10,4 +10,3 @@ client/public/*
 # restreamer
 restreamer/data/*
 !restreamer/data/.gitkeep
-

@@ -48,13 +48,17 @@
     color: colors.$red;
     font-family: fonts.$sans-serif;
     font-size: fonts.$large;
-    font-weight: fonts.$bold;
+    font-weight: fonts.$regular;
     left: 50%;
+    letter-spacing: 0.2rem;
     margin-top: layout.$header-height * -1;
+    pointer-events: none;
     position: absolute;
+    text-align: center;
     text-transform: uppercase;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
+    width: 100%;
     z-index: 3;
   }
 

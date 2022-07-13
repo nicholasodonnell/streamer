@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/media-has-caption */
-
 import 'video.js/dist/video-js.css'
 import '../styles/video.scss'
 
@@ -14,10 +12,11 @@ const videoJsOptions = {
   controls: true,
   fluid: false,
   liveui: false,
+  responsive: true,
   poster: '',
   sources: [
     {
-      src: `${getServiceUrl()}/restreamer/hls/live.stream.m3u8`,
+      src: `${getServiceUrl()}/admin/hls/live.stream.m3u8`,
       type: 'application/x-mpegURL',
     },
   ],
@@ -31,8 +30,13 @@ export default ({
 
   useEffect(() => {
     const player = videojs(videoRef.current, videoJsOptions)
+
     player.on('error', () => onError(player.error().message))
-  }, [ videoRef ])
+    player.on('ready', () => {
+      player.play()
+      player.muted(false)
+    })
+  }, [ onError ])
 
   return (
     <div data-vjs-player>

@@ -1,9 +1,10 @@
 version: "3.5"
 services:
 
-  streamer-client:
+  client:
     build:
       context: ./client
+      target: production
     container_name: streamer-client
     env_file:
       - .env
@@ -13,23 +14,24 @@ services:
     networks:
       - streamer
 
-  streamer-client-dev:
+  client-development:
     build:
       context: ./client
-      target: build
+      target: development
     command: yarn dev
-    container_name: streamer-client-dev
+    container_name: streamer-client-development
     env_file:
       - .env
     expose:
       - 3000
-    image: streamer/client-dev:latest
+    image: streamer/client:development
     networks:
       - streamer
 
-  streamer-gateway:
+  gateway:
     build:
       context: ./gateway
+      target: production
     container_name: streamer-gateway
     env_file:
       - .env
@@ -40,12 +42,28 @@ services:
     networks:
       - streamer
 
+  gateway-development:
+    build:
+      context: ./gateway
+      target: development
+    container_name: streamer-gateway-development
+    env_file:
+      - .env
+    expose:
+      - 80
+      - 1935
+    image: streamer/gateway:development
+    networks:
+      - streamer
+
   restreamer:
     build:
       context: ./restreamer
-    container_name: restreamer
+    container_name: streamer-restreamer
     env_file:
       - .env
+    environment:
+      - RS_SNAPSHOT_INTERVAL=0
     expose:
       - 1935
       - 8080

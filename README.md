@@ -1,4 +1,8 @@
-<img src="assets/banner.png" />
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/banner-dark.png">
+  <source media="(prefers-color-scheme: light)" srcset="assets/banner-light.png">
+  <img src="assets/banner-light.png">
+</picture>
 
 Collection of dockerized services to livestream to the 🌎
 
@@ -10,7 +14,7 @@ Collection of dockerized services to livestream to the 🌎
 
 ### Services
 
-- **Client** - Webplayer frontend
+- **Client** - Streaming frontend
 - **Gateway** - Routing
 - **Restreamer** - Streaming backend
 
@@ -24,15 +28,15 @@ Collection of dockerized services to livestream to the 🌎
 
 Highly recommend [OBS](https://obsproject.com/) for live streaming. Please refer to [this guide](https://datarhei.github.io/restreamer/docs/guides-obs.html) for setup details.
 
-1. Configure Restreamer by visiting `http://<YOUR_IP>:<WEB_PORT>/restreamer`.
-2. Access player by visiting `http://<YOUR_IP>:<WEB_PORT>`.
+1. Configure Restreamer by visiting `http://localhost:<WEB_PORT>/admin`.
+2. Access player by visiting `http://localhost:<WEB_PORT>`.
 
 ## Development
 
 Development mode will use [Webpack dev server](https://webpack.js.org/configuration/dev-server/) with live reloading to serve the web client.
 
 1. Run `make dev` to run this collection in development mode.
-2. Access player by visiting `http://<YOUR_IP>:<DEV_PORT>`.
+2. Access player by visiting `http://localhost:<WEB_PORT>`.
 
 ## Usage
 
@@ -74,15 +78,14 @@ make clean
 
 ## ENV Options
 
-| Option                 | Description                                   | Default        |
-| ---------------------- | --------------------------------------------- | -------------- |
-| `WEB_PORT`             | Host web port.                                | `8080`         |
-| `RTMP_PORT`            | Host RTMP port.                               | `1935`         |
-| `DEV_PORT`             | Host Webpack dev server port.                 | `3000`         |
-| `RESTREAMER_DATA_PATH` | Host path for Restreamer configuration files. | `./restreamer` |
-| `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.          | `password`     |
-| `RESTREAMER_TOKEN`     | RTMP publish token.                           | `secret`       |
-| `RESTREAMER_USERNAME`  | Username for the Restreamer backend.          | `username`     |
+| Option                 | Description                                   | Default             |
+| ---------------------- | --------------------------------------------- | ------------------- |
+| `WEB_PORT`             | Host web port.                                | `8080`              |
+| `RTMP_PORT`            | Host RTMP port.                               | `1935`              |
+| `RESTREAMER_DATA_PATH` | Host path for Restreamer configuration files. | `./restreamer/data` |
+| `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.          | `password`          |
+| `RESTREAMER_TOKEN`     | RTMP publish token.                           | `secret`            |
+| `RESTREAMER_USERNAME`  | Username for the Restreamer backend.          | `username`          |
 
 
 ## Screenshot

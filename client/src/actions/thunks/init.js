@@ -16,9 +16,7 @@ export default () => async dispatch => {
   try {
     const streamState = await fetchStreamState()
 
-    dispatch(setOnline(
-      isStreamOnline(streamState)
-    ))
+    dispatch(setOnline(isStreamOnline(streamState)))
   } catch ({ message }) {
     dispatch(addNotification(message))
     dispatch(setOnline(false))

@@ -4,23 +4,34 @@ const { DefinePlugin } = require('webpack')
 
 const { NODE_ENV } = process.env
 
-const prod = NODE_ENV === 'production'
+const isProd = NODE_ENV === 'production'
 
 module.exports = {
   mode: NODE_ENV,
-  devtool: prod ? 'hidden-source-map' : 'inline-source-map',
+  devtool: isProd ? 'hidden-source-map' : 'inline-source-map',
   devServer: {
+    allowedHosts: 'all',
     host: '0.0.0.0',
-    inline: true,
+    hot: true,
+    liveReload: true,
     port: 3000,
+    watchFiles: [ './src/**/*' ],
   },
   entry: './src/index.js',
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'esbuild-loader',
+            options: {
+              loader: 'jsx',
+              target: 'es2015',
+            },
+          },
+        ],
       },
       {
         test: /\.css$/,
@@ -68,17 +79,21 @@ module.exports = {
     ],
   },
   output: {
-    path: path.join(__dirname, '/public'),
+    clean: true,
     filename: 'app.js',
+    path: path.join(__dirname, '/public'),
+    publicPath: '/',
   },
   plugins: [
     new DefinePlugin({
-      SERVICE_URL: JSON.stringify(`//localhost:${process.env.WEB_PORT || 8080}`),
+      'process.env.WEB_PORT': JSON.stringify(process.env.WEB_PORT || 8080),
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV),
     }),
     new HtmlWebpackPlugin({
-      hash: true,
-      template: './src/index.html',
       favicon: './public/favicon.ico',
+      hash: isProd,
+      minify: isProd,
+      template: './src/index.html',
     }),
   ],
 }

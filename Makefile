@@ -29,10 +29,15 @@ clean: ## remove docker images
 dev: ## start collection in client development mode
 	@docker-compose ${DOCKER_COMPOSE_ARGS} \
 		up \
+			--detach \
 			--remove-orphans \
-			streamer-client-dev \
-			streamer-gateway \
-			restreamer
+			client-development \
+			restreamer;
+	@docker-compose ${DOCKER_COMPOSE_ARGS} \
+		up \
+			--detach \
+			--remove-orphans \
+			gateway-development;
 
 down: ## stop collection
 	@docker-compose ${DOCKER_COMPOSE_ARGS} \
@@ -59,9 +64,13 @@ up: ## start collection
 		up \
 			--detach \
 			--remove-orphans \
-			streamer-client \
-			streamer-gateway \
-			restreamer
+			client \
+			restreamer;
+	@docker-compose ${DOCKER_COMPOSE_ARGS} \
+		up \
+			--detach \
+			--remove-orphans \
+			gateway
 
 .PHONY: \
 	help \

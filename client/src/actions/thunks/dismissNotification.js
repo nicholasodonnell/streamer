@@ -1,19 +1,12 @@
-import { compose, mergeDeepRight, values } from 'ramda'
-
 import setNotifications from '../setNotifications'
 
-const mergeDeepValues = compose(values, mergeDeepRight)
-
 export default id => async (dispatch, getState) => {
+  const { notifications } = getState()
+
   dispatch(setNotifications(
-    mergeDeepValues(
-      getState().notifications,
-      [
-        {
-          active: false,
-          id,
-        },
-      ],
-    )
+    notifications.map(notification => ({
+      ...notification,
+      active: notification.id === id ? false : notification.active,
+    }))
   ))
 }

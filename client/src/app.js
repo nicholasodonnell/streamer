@@ -11,7 +11,7 @@ export default () => {
 
   useEffect(() => {
     dispatch(init())
-  }, [])
+  }, [ dispatch ])
 
   return (
     <div className={classNames.app}>

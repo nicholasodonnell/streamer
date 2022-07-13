@@ -10,7 +10,7 @@ export default () => {
 
   const handleNotificationDismiss = useCallback(id => {
     dispatch(dismissNotification(id))
-  }, [])
+  }, [ dispatch ])
 
   return (
     <div className={classNames.notifications}>
