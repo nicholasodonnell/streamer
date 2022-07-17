@@ -86,8 +86,3 @@ make clean
 | `RESTREAMER_PASSWORD`  | Password for the Restreamer backend.          | `password`          |
 | `RESTREAMER_TOKEN`     | RTMP publish token.                           | `secret`            |
 | `RESTREAMER_USERNAME`  | Username for the Restreamer backend.          | `username`          |
-
-
-## Screenshot
-
-<img src="assets/screenshot.png" />

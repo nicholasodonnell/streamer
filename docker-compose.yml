@@ -5,12 +5,12 @@ services:
     build:
       context: ./client
       target: production
-    container_name: streamer-client
+    container_name: odo-stream-client
     env_file:
       - .env
     expose:
       - 80
-    image: streamer/client:latest
+    image: nicholasodonnell/odo-stream-client:latest
     networks:
       - odo-stream
 
@@ -19,12 +19,12 @@ services:
       context: ./client
       target: development
     command: yarn dev
-    container_name: streamer-client-development
+    container_name: odo-stream-client-development
     env_file:
       - .env
     expose:
       - 3000
-    image: streamer/client:development
+    image: nicholasodonnell/odo-stream-client:development
     networks:
       - odo-stream
 
@@ -32,13 +32,13 @@ services:
     build:
       context: ./gateway
       target: production
-    container_name: streamer-gateway
+    container_name: odo-stream-gateway
     env_file:
       - .env
     expose:
       - 80
       - 1935
-    image: streamer/gateway:latest
+    image: nicholasodonnell/odo-stream-gateway:latest
     networks:
       - odo-stream
 
@@ -46,20 +46,20 @@ services:
     build:
       context: ./gateway
       target: development
-    container_name: streamer-gateway-development
+    container_name: odo-stream-gateway-development
     env_file:
       - .env
     expose:
       - 80
       - 1935
-    image: streamer/gateway:development
+    image: nicholasodonnell/odo-stream-gateway:development
     networks:
       - odo-stream
 
   restreamer:
     build:
       context: ./restreamer
-    container_name: streamer-restreamer
+    container_name: restreamer
     env_file:
       - .env
     environment:
@@ -67,7 +67,7 @@ services:
     expose:
       - 1935
       - 8080
-    image: streamer/restreamer:latest
+    image: nicholasodonnell/restreamer:latest
     networks:
       - odo-stream
 

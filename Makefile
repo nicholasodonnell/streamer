@@ -2,7 +2,7 @@ include .env
 
 SHELL := /bin/bash
 PROJECT_DIRECTORY := $(shell pwd)
-PROJECT_NAME := streamer
+PROJECT_NAME := odo-stream
 
 define DOCKER_COMPOSE_ARGS
 	--log-level ERROR \
